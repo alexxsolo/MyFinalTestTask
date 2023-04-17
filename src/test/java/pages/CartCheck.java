@@ -13,53 +13,43 @@ import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.addAttachment;
 
 public class CartCheck {
-    public CartCheck openPage() {
+    public void openPage() {
         open("https://colorlon.ru");
-        return this;
     }
 
-    public CartCheck setShopPopUp() {
+    public void setShopPopUp() {
         $(By.linkText("Новорязанское шоссе, 5")).click();
-        return this;
     }
 
-    public CartCheck openMenu() {
+    public void openMenu() {
         $(".header__catalog").click();
-        return this;
     }
 
-    public CartCheck openCategory() {
+    public void openCategory() {
         $(".menu-nav").$(byText("Двери, окна и фурнитура")).hover();
         $(".menu-nav").$(byText("Двери входные")).click();
-        return this;
     }
 
-    public CartCheck addFirstProduct() {
+    public void addFirstProduct() {
         $(".product-card .product-card__button", 0).click();
         $(".product-card .product-card__button_add", 0).should(Condition.visible, Duration.ofSeconds(1)); //не успевает добавить в корзину
-        return this;
     }
 
-    public CartCheck addSecondProduct() {
+    public void addSecondProduct() {
         $(".product-card .product-card__button", 1).click();
         $(".product-card .product-card__button_add", 1).should(Condition.visible, Duration.ofSeconds(1));
-        return this;
     }
 
-    public CartCheck openCart() {
+    public void openCart() {
         $(".header__icons .header__cart").click();
-        return this;
     }
-    public CartCheck checkTrueCount() {
+    public void checkTrueCount() {
         $(".basket__good .basket__good-val").shouldHave(text("2"));
         addAttachment("Page Source", "text/html", WebDriverRunner.source(), "html");
-        return this;
     }
 
-    public CartCheck checkFalseCount() {
+    public void checkFalseCount() {
         $(".basket__good .basket__good-val").shouldHave(text("123"));
         addAttachment("Page Source", "text/html", WebDriverRunner.source(), "html");
-        return this;
     }
-
 }
