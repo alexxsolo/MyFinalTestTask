@@ -33,7 +33,7 @@ public class CartTest {
     @Severity(SeverityLevel.NORMAL)
     @Feature("Корзина")
     @Story("Проверка корзины")
-    @DisplayName("Проверка корректного каунтера в корзине")
+    @DisplayName("Проверка корректного количества товара в корзине")
     @Description(
             "Этот тест проверяет корректно ли отображается количество добавленных товаров в корзине")
     @Link(value = "Сайт", url = "https://colorlon.ru")
@@ -71,7 +71,7 @@ public class CartTest {
     @Severity(SeverityLevel.NORMAL)
     @Feature("Корзина")
     @Story("Проверка корзины")
-    @DisplayName("Проверка каунтера в корзине, если количество некорректное")
+    @DisplayName("Проверка количества товаров в корзине, если оно некорректное")
     @Description(
             "Этот тест должен падать, чтобы проверить, верно ли мы сверяем количетсво в корзине")
     @Link(value = "Сайт", url = "https://colorlon.ru")
