@@ -1,2 +1,3 @@
 Привет 
-Для просмотра Allure нужно перейти в Gradle в IDE. Путь MyTestTask/verification/allureServe
+Тут 2 теста. Один проверяет верно ли отображается кол-во товара в корзине, второй дублирует первый тест, но падает, потому что проверяет неверное кол-во.
+Подключен Allure. Для просмотра Allure нужно перейти в Gradle в IDE. Путь MyTestTask/verification/allureServe
