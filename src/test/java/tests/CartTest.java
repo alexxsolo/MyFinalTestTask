@@ -8,13 +8,13 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.CartCheck;
+import pages.CartPage;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class CartTest {
 
-    CartCheck cartCheck = new CartCheck();
+    CartPage cartPage = new CartPage();
 
     @BeforeAll
     static void beforeAll() {
@@ -41,28 +41,28 @@ public class CartTest {
     public void checkCounter() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открываем главную страницу", () -> {
-            cartCheck.openPage();
+            cartPage.openPage();
         });
         step("Выбираем магазин", () -> {
-            cartCheck.setShopPopUp();
+            cartPage.setShopPopUp();
         });
         step("Открываем мега-меню каталога", () -> {
-            cartCheck.openMenu();
+            cartPage.openMenu();
         });
         step("Переходим в подкатегорию Двери входные", () -> {
-            cartCheck.openCategory();
+            cartPage.openCategory();
         });
         step("Добавляем первый товар", () -> {
-            cartCheck.addFirstProduct();
+            cartPage.addProduct(0);
         });
         step("Добавляем второй товар", () -> {
-            cartCheck.addSecondProduct();
+            cartPage.addProduct(1);
         });
         step("Переходим в корзину", () -> {
-            cartCheck.openCart();
+            cartPage.openCart();
         });
         step("Проверяем количество товаров в корзине", () -> {
-            cartCheck.checkTrueCount();
+            cartPage.checkTrueCount();
         });
     }
 
@@ -79,28 +79,28 @@ public class CartTest {
     public void checkFalseCounter() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открываем главную страницу", () -> {
-            cartCheck.openPage();
+            cartPage.openPage();
         });
         step("Выбираем магазин", () -> {
-            cartCheck.setShopPopUp();
+            cartPage.setShopPopUp();
         });
         step("Открываем мега-меню каталога", () -> {
-            cartCheck.openMenu();
+            cartPage.openMenu();
         });
         step("Переходим в подкатегорию Двери входные", () -> {
-            cartCheck.openCategory();
+            cartPage.openCategory();
         });
         step("Добавляем первый товар", () -> {
-            cartCheck.addFirstProduct();
+            cartPage.addFirstProduct();
         });
         step("Добавляем второй товар", () -> {
-            cartCheck.addSecondProduct();
+            cartPage.addSecondProduct();
         });
         step("Переходим в корзину", () -> {
-            cartCheck.openCart();
+            cartPage.openCart();
         });
         step("Проверяем, что при некорректном количестве тест падает", () -> {
-            cartCheck.checkFalseCount();
+            cartPage.checkFalseCount();
         });
     }
 }

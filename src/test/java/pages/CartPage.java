@@ -12,17 +12,13 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.addAttachment;
 
-public class CartCheck {
+public class CartPage extends BasePage {
     public void openPage() {
         open("https://colorlon.ru");
     }
 
     public void setShopPopUp() {
         $(By.linkText("Новорязанское шоссе, 5")).click();
-    }
-
-    public void openMenu() {
-        $(".header__catalog").click();
     }
 
     public void openCategory() {
@@ -33,6 +29,10 @@ public class CartCheck {
     public void addFirstProduct() {
         $(".product-card .product-card__button", 0).click();
         $(".product-card .product-card__button_add", 0).should(Condition.visible, Duration.ofSeconds(1)); //не успевает добавить в корзину
+    }
+    public void addProduct(int productId) {
+        $(".product-card .product-card__button", productId).click();
+        $(".product-card .product-card__button_add", productId).should(Condition.visible, Duration.ofSeconds(1)); //не успевает добавить в корзину
     }
 
     public void addSecondProduct() {
@@ -53,3 +53,5 @@ public class CartCheck {
         addAttachment("Page Source", "text/html", WebDriverRunner.source(), "html");
     }
 }
+
+
